@@ -15,7 +15,6 @@ parse json
 }
 \examples{
 library("httr")
-library("magrittr")
 library("data.table")
 
 # GBIF example
@@ -27,11 +26,19 @@ json \%>\%
    rbindlist
 
 # PLOS example
+## The jqr way
 json <- content(GET('http://api.plos.org/search/?q=*:*&wt=json'), as = "text")
 json \%>\%
    jq \%s\%
    'response.docs' \%v\%
    c('id','journal') \%>\%
    rbindlist
+## How it would be otherwise
+library("jsonlite")
+res <- fromJSON(json, FALSE)
+out <- res$response$docs
+out2 <- lapply(out, function(x) x[c('id','journal')])
+rbindlist(out2)
+## Thought the jqr way is a tiny bit longer, it's much more intuitive
 }
 

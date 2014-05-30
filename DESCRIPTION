@@ -8,9 +8,10 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
 License: MIT + file LICENSE
 URL: https://github.com/sckott/jqr
 BugReports: http://www.github.com/sckott/jqr/issues
-Imports:
-    jsonlite,
+Depends:
     magrittr
+Imports:
+    jsonlite
 Suggests:
     httr,
     data.table,
