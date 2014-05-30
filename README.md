@@ -1,7 +1,7 @@
 jqr
 ========
 
-A json parser in R inspired by [`jq`]().
+A json parser in R inspired by [`jq`](http://stedolan.github.io/jq/).
 
 ### Quick start
 
